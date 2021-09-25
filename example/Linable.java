@@ -8,6 +8,6 @@ public interface Linable {
 
     public Position getPosition();
 
-    public int getValue();
+    public double rank();
 
 }

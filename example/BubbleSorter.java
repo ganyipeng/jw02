@@ -2,15 +2,15 @@ package example;
 
 public class BubbleSorter implements Sorter {
 
-    private int[] a;
+    private double[] a;
 
     @Override
-    public void load(int[] a) {
+    public void load(double[] a) {
         this.a = a;
     }
 
     private void swap(int i, int j) {
-        int temp;
+        double temp;
         temp = a[i];
         a[i] = a[j];
         a[j] = temp;
