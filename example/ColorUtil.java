@@ -1,6 +1,6 @@
 package example;
 
-public class Test {
+public class ColorUtil {
     public static class Color{
         int r;
         int g;
@@ -53,7 +53,6 @@ public class Test {
     public static void showColor(Color color) {
         String colorString = "\033[48;2;" + color.r + ";" + color.g + ";" + color.b + ";38;2;0;0;0m \033[0m";
         System.out.println(colorString);
-//        return "\033[48;2;" + this.r + ";" + this.g + ";" + this.b + ";38;2;0;0;0m" + this.rank() + "\033[0m";
     }
     public static void main(String[] args) {
 
@@ -98,10 +97,4 @@ public class Test {
         return new int[]{rs,gs,bs};
     }
 
-//    public static String rgbToString(float r, float g, float b) {
-//        String rs = Integer.toHexString((int)(r * 256));
-//        String gs = Integer.toHexString((int)(g * 256));
-//        String bs = Integer.toHexString((int)(b * 256));
-//        return rs + gs + bs;
-//    }
 }

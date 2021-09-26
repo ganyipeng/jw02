@@ -1,7 +1,7 @@
 package example;
 
 import example.Line.Position;
-import example.Test.Color;
+import example.ColorUtil.Color;
 
 public class Genie implements Linable {
     private Color color;

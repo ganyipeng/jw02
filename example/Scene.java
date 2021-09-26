@@ -30,32 +30,19 @@ public class Scene {
 
     public static void main(String[] args) throws IOException {
 
-
+        // 可以将SIZE调小，例如10，20，30等，来快速测试，因为256太慢了
         Line line = new Line(SIZE);
+        // 获取SIZE个随机位置
         List<Integer> orders = generateRandomDiffInteger(SIZE);
-        Test.Color[] colors = Test.Color.random(256);
+        // 获取256个颜色值
+        ColorUtil.Color[] colors = ColorUtil.Color.random(256);
 
 
         for(int i=0; i<SIZE; i++){
-            int r = colors[i].r;
-            int g = colors[i].g;
-            int b = colors[i].b;
             float h = colors[i].h;
             float s = colors[i].s;
-            float v = colors[i].v;
-//            int rank = i;
-            double rank = 0;
-//            if(s>=0.9999999||s<=0.0000001){
-//                rank=(int)((s+1)*2000);
-//            }else {
-//                rank = (int) (h+100 + s);
-//            }
-//            if(s>=0.9999999||s<=0.0000001){
-//                rank=(int)(s*20000000);
-//            }else {
-//                rank = (int) (h * 100000 + s * 1000);
-//            }
-            rank = (int) (h * 100000 + s * 1000);
+            double rank = (int) (h * 100000 + s * 1000);
+            // 将颜色和rank赋值给Genie小怪
             line.put(new Genie(colors[i], rank), orders.get(i));
         }
         System.out.println(orders);
