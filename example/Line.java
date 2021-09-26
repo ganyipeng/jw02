@@ -40,9 +40,18 @@ public class Line {
 
     @Override
     public String toString() {
-        String lineString = "\t";
+        String lineString = "";
+        int counter = 0;
+        int size = positions.length;
+        // 根据size求平方根，该平方根就是方阵的尺寸
+        int N_ROW = (int)Math.sqrt(size);
         for (Position p : positions) {
+            counter++;
             lineString += p.linable.toString();
+            if(counter==N_ROW||counter==size){
+                counter=0;
+                lineString += "\n";
+            }
         }
         return lineString;
     }

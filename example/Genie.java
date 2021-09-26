@@ -1,7 +1,7 @@
 package example;
 
 import example.Line.Position;
-import example.Test.Color;
+import example.ColorUtil.Color;
 
 public class Genie implements Linable {
     private Color color;
@@ -95,10 +95,18 @@ public class Genie implements Linable {
     }
 
 
+    public String format(){
+        String str = "          "+(int)this.rank();
+        int len = str.length();
+        return str.substring(len-10, len);
+    }
+
     @Override
     public String toString() {
-        return "\033[48;2;" + this.color.r + ";" + this.color.g + ";" + this.color.b + ";38;2;0;0;0m \033[0m";
-//        return "\033[48;2;" + this.r + ";" + this.g + ";" + this.b + ";38;2;0;0;0m" + this.rank() + "\033[0m";
+//        return "\033[48;2;" + this.color.r + ";" + this.color.g + ";" + this.color.b + ";38;2;0;0;0m \033[0m";
+//        return "\033[48;2;" + this.color.r + ";" + this.color.g + ";" + this.color.b + ";38;2;0;0;0m" + (int)this.rank() + "\033[0m";
+//        return "\033[48;2;" + this.color.r + ";" + this.color.g + ";" + this.color.b + ";38;2;0;0;0m" + this.format() + "\033[0m";
+        return "\033[48;2;" + this.color.r + ";" + this.color.g + ";" + this.color.b + ";38;2;0;0;0m" + "   " + "\033[0m";
     }
 
     @Override

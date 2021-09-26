@@ -1,6 +1,6 @@
 package example;
 
-public class Test {
+public class ColorUtil {
     public static class Color{
         int r;
         int g;
@@ -18,21 +18,23 @@ public class Test {
         }
         public static Color[] random(int size){
             Color[] colors = new Color[size];
-            // 8个h
-            double[] h = new double[8];
-            for (int i = 0; i < 8; i++) {
-                h[i] = i*45/360.0;
+            int h_count = 16;
+            int s_count = 16;
+            // 16个h
+            double[] h = new double[h_count];
+            for (int i = 0; i < h_count; i++) {
+                h[i] = i*20/360.0;
             }
 
-            // 32个g
-            double[] s = new double[32];
-            for(int j=0; j<32; j++){
-                s[j] = j*3/100.0;
+            // 16个s
+            double[] s = new double[s_count];
+            for(int j=0; j<s_count; j++){
+                s[j] = j*6/100.0;
             }
 
             int index = -1;
-            for(int ii=0; ii<8; ii++){
-                for(int jj=0; jj<32; jj++){
+            for(int ii=0; ii<h_count; ii++){
+                for(int jj=0; jj<s_count; jj++){
                     index++;
                     float _h = (float) h[ii];
                     float _s = (float) s[jj];
@@ -53,7 +55,6 @@ public class Test {
     public static void showColor(Color color) {
         String colorString = "\033[48;2;" + color.r + ";" + color.g + ";" + color.b + ";38;2;0;0;0m \033[0m";
         System.out.println(colorString);
-//        return "\033[48;2;" + this.r + ";" + this.g + ";" + this.b + ";38;2;0;0;0m" + this.rank() + "\033[0m";
     }
     public static void main(String[] args) {
 
@@ -98,10 +99,4 @@ public class Test {
         return new int[]{rs,gs,bs};
     }
 
-//    public static String rgbToString(float r, float g, float b) {
-//        String rs = Integer.toHexString((int)(r * 256));
-//        String gs = Integer.toHexString((int)(g * 256));
-//        String bs = Integer.toHexString((int)(b * 256));
-//        return rs + gs + bs;
-//    }
 }

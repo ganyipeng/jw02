@@ -42,18 +42,19 @@ public class Snake {
         String[] sortSteps = this.parsePlan(sorter.getPlan());
 
         String lastLog = "";
+        int counter = 0;
+        int size = sortSteps.length;
         for (String step : sortSteps) {
             this.execute(step, linables);
+            counter++;
+//            if(counter%5!=0 && counter!=size){
+//                continue;
+//            }
             System.out.println(line.toString());
             lastLog = "";
-            lastLog += line.toString()+"\n";
-//            lastLog += line.toString()+"\n";
-//            lastLog += line.toString()+"\n";
-//            lastLog += line.toString()+"\n";
+            lastLog += line.toString();
             lastLog += "\n[frame]\n";
             log+=lastLog;
-//            log += line.toString();
-//            log += "\n[frame]\n";
         }
         for(int i=0; i<100; i++){
             log+=lastLog;
